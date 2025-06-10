@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: PRPvarthagam  # change this to your app's name
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm run preview
+    staticPublish: dist/
