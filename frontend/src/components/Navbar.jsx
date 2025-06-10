@@ -98,64 +98,65 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Navigation */}
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-amber-600 px-4 py-2 animate-slide-down">
-          <div className="flex flex-col space-y-3">
-            <Link 
-              to="/" 
-              className="block py-2 hover:text-amber-200 transition-all duration-300 hover:pl-2 hover:bg-amber-700 rounded"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Home
-            </Link>
-            <Link 
-              to="/about" 
-              className="block py-2 hover:text-amber-200 transition-all duration-300 hover:pl-2 hover:bg-amber-700 rounded"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              About
-            </Link>
-            <Link 
-              to="/services" 
-              className="block py-2 hover:text-amber-200 transition-all duration-300 hover:pl-2 hover:bg-amber-700 rounded"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Services
-            </Link>
-            <Link 
-              to="/contact" 
-              className="block py-2 hover:text-amber-200 transition-all duration-300 hover:pl-2 hover:bg-amber-700 rounded"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Contact
-            </Link>
-          </div>
-          <div className="mt-4 pt-4 border-t border-amber-500">
-            <Link 
-              to="/contact" 
-              className="block bg-white text-amber-700 px-4 py-3 rounded-md font-medium hover:bg-amber-100 transition-all duration-300 flex items-center justify-center mb-3 group overflow-hidden"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              <span className="relative z-10 flex items-center">
-                <ShoppingBagIcon className="h-5 w-5 mr-2 transition-transform duration-300 group-hover:scale-125" />
-                Get Quote
-              </span>
-              <span className="absolute inset-0 bg-gradient-to-r from-amber-200 to-amber-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-            </Link>
-            <a 
-              href="tel:+15551234567" 
-              className="flex items-center justify-center space-x-2 hover:text-amber-200 group transition-all duration-300 py-2"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              <div className="relative p-1">
-                <PhoneIcon className="h-5 w-5 transition-transform duration-300 group-hover:scale-110" />
-                <span className="absolute inset-0 rounded-full bg-amber-200 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
-              </div>
-              <span className="transition-all duration-300 group-hover:font-medium">+1 (555) 123-4567</span>
-            </a>
-          </div>
+ {/* Mobile Navigation */}
+{mobileMenuOpen && (
+  <div className="md:hidden bg-amber-600 px-4 py-2 animate-slide-down">
+    <div className="flex flex-col space-y-3">
+      <Link 
+        to="/" 
+        className="py-2 hover:text-amber-200 transition-all duration-300 hover:pl-2 hover:bg-amber-700 rounded"
+        onClick={() => setMobileMenuOpen(false)}
+      >
+        Home
+      </Link>
+      <Link 
+        to="/about" 
+        className="py-2 hover:text-amber-200 transition-all duration-300 hover:pl-2 hover:bg-amber-700 rounded"
+        onClick={() => setMobileMenuOpen(false)}
+      >
+        About
+      </Link>
+      <Link 
+        to="/services" 
+        className="py-2 hover:text-amber-200 transition-all duration-300 hover:pl-2 hover:bg-amber-700 rounded"
+        onClick={() => setMobileMenuOpen(false)}
+      >
+        Services
+      </Link>
+      <Link 
+        to="/contact" 
+        className="py-2 hover:text-amber-200 transition-all duration-300 hover:pl-2 hover:bg-amber-700 rounded"
+        onClick={() => setMobileMenuOpen(false)}
+      >
+        Contact
+      </Link>
+    </div>
+    <div className="mt-4 pt-4 border-t border-amber-500">
+      <Link 
+        to="/contact" 
+        className="bg-white text-amber-700 px-4 py-3 rounded-md font-medium hover:bg-amber-100 transition-all duration-300 flex items-center justify-center mb-3 group overflow-hidden"
+        onClick={() => setMobileMenuOpen(false)}
+      >
+        <span className="relative z-10 flex items-center">
+          <ShoppingBagIcon className="h-5 w-5 mr-2 transition-transform duration-300 group-hover:scale-125" />
+          Get Quote
+        </span>
+        <span className="absolute inset-0 bg-gradient-to-r from-amber-200 to-amber-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+      </Link>
+      <a 
+        href="tel:+15551234567" 
+        className="flex items-center justify-center space-x-2 hover:text-amber-200 group transition-all duration-300 py-2"
+        onClick={() => setMobileMenuOpen(false)}
+      >
+        <div className="relative p-1">
+          <PhoneIcon className="h-5 w-5 transition-transform duration-300 group-hover:scale-110" />
+          <span className="absolute inset-0 rounded-full bg-amber-200 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
         </div>
-      )}
+        <span className="transition-all duration-300 group-hover:font-medium">+1 (555) 123-4567</span>
+      </a>
+    </div>
+  </div>
+)}
     </nav>
   );
 }
