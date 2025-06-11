@@ -3,8 +3,10 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/Tradingsit/', // Must match your repo name exactly
+  base: './', // Changed from '/Tradingsit/'
   build: {
-    outDir: 'dist', // Ensure this matches gh-pages deploy directory
+    outDir: 'dist',
+    emptyOutDir: true,
+    assetsInlineLimit: 0 // Ensure assets are not inlined
   }
 })
