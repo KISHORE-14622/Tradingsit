@@ -9,10 +9,10 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
-    "preview:render": "vite preview --port $PORT"
+    "deploy": "gh-pages -d dist"
+    
   },
-  "homepage": "https://KISHORE-14622.github.io/Tradingsit/",
+  
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@heroicons/react": "^2.2.0",
