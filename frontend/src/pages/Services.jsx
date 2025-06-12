@@ -198,10 +198,8 @@ export default function Services() {
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12">Spice Varieties We Handle</h2>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {[
-            "Black Pepper", "Cardamom", "Turmeric", "Cumin",
-            "Coriander", "Cloves", "Cinnamon", "Nutmeg",
-            "Mustard Seeds", "Fennel", "Star Anise", "Vanilla",
-            "Paprika", "Chili Powder", "Ginger", "Saffron"
+            "Black Pepper", "Cardamom", "Turmeric", "Cinnamon", 
+            
           ].map((spice, index) => (
             <div key={index} className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition text-center">
               <span className="text-amber-700 font-medium">{spice}</span>

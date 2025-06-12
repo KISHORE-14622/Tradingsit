@@ -84,16 +84,7 @@ export default function Navbar() {
             </span>
             <span className="absolute inset-0 bg-gradient-to-r from-amber-200 to-amber-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
           </Link>
-          <a 
-            href="tel:+15551234567" 
-            className="flex items-center space-x-1 hover:text-amber-200 group transition-all duration-300"
-          >
-            <div className="relative p-1">
-              <PhoneIcon className="h-5 w-5 transition-transform duration-300 group-hover:scale-110" />
-              <span className="absolute inset-0 rounded-full bg-amber-200 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
-            </div>
-            <span className="transition-all duration-300 group-hover:font-medium">+1 (555) 123-4567</span>
-          </a>
+          
         </div>
       </div>
 
@@ -143,17 +134,7 @@ export default function Navbar() {
         </span>
         <span className="absolute inset-0 bg-gradient-to-r from-amber-200 to-amber-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
       </Link>
-      <a 
-        href="tel:+15551234567" 
-        className="flex items-center justify-center space-x-2 hover:text-amber-200 group transition-all duration-300 py-2"
-        onClick={() => setMobileMenuOpen(false)}
-      >
-        <div className="relative p-1">
-          <PhoneIcon className="h-5 w-5 transition-transform duration-300 group-hover:scale-110" />
-          <span className="absolute inset-0 rounded-full bg-amber-200 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
-        </div>
-        <span className="transition-all duration-300 group-hover:font-medium">+1 (555) 123-4567</span>
-      </a>
+      
     </div>
   </div>
 )}

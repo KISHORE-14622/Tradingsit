@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/', // Keep this consistent
+  base: '/Trading-site', // Keep this consistent
   build: {
     outDir: 'dist',
     emptyOutDir: true,
