@@ -38,13 +38,7 @@ const certifications = [
   { name: "HACCP", desc: "Hazard Analysis", icon: CheckBadgeIcon }
 ];
 
-const milestones = [
-  { year: "2010", event: "Founded in Kerala, India" },
-  { year: "2013", event: "Expanded to international markets" },
-  { year: "2016", event: "Achieved ISO 22000 certification" },
-  { year: "2019", event: "Launched sustainable farming initiative" },
-  { year: "2022", event: "Reached 500+ partner farms" }
-];
+
 
 export default function About() {
   return (
@@ -162,23 +156,7 @@ export default function About() {
                 </div>
               </div>
 
-              {/* Company Milestones */}
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-bold mb-4 flex items-center">
-                  <CalendarIcon className="h-6 w-6 text-amber-600 mr-2" />
-                  Our Milestones
-                </h3>
-                <div className="space-y-4">
-                  {milestones.map((milestone, index) => (
-                    <div key={index} className="flex">
-                      <div className="bg-amber-600 text-white rounded-full h-8 w-8 flex items-center justify-center mr-3 flex-shrink-0">
-                        {milestone.year}
-                      </div>
-                      <p>{milestone.event}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
+             
             </div>
           </div>
 
