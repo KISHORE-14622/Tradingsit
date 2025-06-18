@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { 
   GlobeAltIcon, 
   ShoppingBagIcon, 
-  PhoneIcon,
   Bars3Icon,
   XMarkIcon 
 } from '@heroicons/react/24/outline';
@@ -22,7 +21,7 @@ export default function Navbar() {
           >
             <GlobeAltIcon className="h-8 w-8 transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110" />
             <span className="text-xl font-bold hover:text-amber-200 transition-colors duration-300">
-              PRP Varthagam Limited
+              PR Varthagam Limited
             </span>
           </Link>
 

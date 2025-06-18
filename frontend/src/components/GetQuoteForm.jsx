@@ -9,26 +9,33 @@ export default function GetQuoteForm() {
     phone: '',
     origin: '',
     destination: '',
-    cargoType: '',
-    weight: '',
-    dimensions: ''
+    message: ''
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target;
     setFormData(prev => ({
       ...prev,
-      [name]: value
+      [name]: type === 'checkbox' ? checked : value
     }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    if (!formData.termsAccepted) {
+      setSubmitStatus({ 
+        success: false, 
+        message: 'Please accept the terms and conditions to proceed.' 
+      });
+      return;
+    }
+
     setIsSubmitting(true);
-      console.log("Form data being sent:", formData);
+    console.log("Form data being sent:", formData);
 
     try {
       const templateParams = {
@@ -37,22 +44,18 @@ export default function GetQuoteForm() {
         phone: formData.phone,
         origin: formData.origin,
         destination: formData.destination,
-        cargo_type: formData.cargoType,
-        weight: formData.weight,
-        dimensions: formData.dimensions,
-        message: `New quote request for ${formData.cargoType} shipment from ${formData.origin} to ${formData.destination}`
+        message: formData.message || `New quote request for shipment from ${formData.origin} to ${formData.destination}`
       };
 
       console.log("Template params:", templateParams); 
 
       const response = await emailjs.send(
-      import.meta.env.VITE_EMAILJS_SERVICE_ID,
-      import.meta.env.VITE_EMAILJS_QUOTE_TEMPLATE_ID,
-      templateParams,
-      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-    );
-    console.log("EmailJS response:", response);
-
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_QUOTE_TEMPLATE_ID,
+        templateParams,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
+      console.log("EmailJS response:", response);
 
       setSubmitStatus({ 
         success: true, 
@@ -64,9 +67,8 @@ export default function GetQuoteForm() {
         phone: '',
         origin: '',
         destination: '',
-        cargoType: '',
-        weight: '',
-        dimensions: ''
+        message: '',
+        termsAccepted: false
       });
     } catch (error) {
       console.error('Full EmailJS error:', error);
@@ -153,50 +155,20 @@ export default function GetQuoteForm() {
           </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div>
-            <label htmlFor="cargoType" className="block text-sm font-medium text-gray-700 mb-1">Cargo Type*</label>
-            <select
-              id="cargoType"
-              name="cargoType"
-              value={formData.cargoType}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-amber-500 focus:border-amber-500"
-              required
-            >
-              <option value="">Select</option>
-              <option value="Spices">Spices</option>
-              <option value="Perishable">Perishable Goods</option>
-              <option value="Hazardous">Hazardous Materials</option>
-              <option value="Oversized">Oversized Load</option>
-              <option value="Vehicle">Vehicle Transport</option>
-            </select>
-          </div>
-          <div>
-            <label htmlFor="weight" className="block text-sm font-medium text-gray-700 mb-1">Weight (kg)*</label>
-            <input
-              type="number"
-              id="weight"
-              name="weight"
-              value={formData.weight}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-amber-500 focus:border-amber-500"
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="dimensions" className="block text-sm font-medium text-gray-700 mb-1">Dimensions (LxWxH)</label>
-            <input
-              type="text"
-              id="dimensions"
-              name="dimensions"
-              value={formData.dimensions}
-              onChange={handleChange}
-              placeholder="e.g., 120x80x60 cm"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-amber-500 focus:border-amber-500"
-            />
-          </div>
+        <div>
+          <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Additional Information</label>
+          <textarea
+            id="message"
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            rows={3}
+            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-amber-500 focus:border-amber-500"
+            placeholder="Please provide any details about your shipment (type of goods, special requirements, etc.)"
+          />
         </div>
+        
+        
 
         {submitStatus && (
           <div className={`p-3 rounded-md ${submitStatus.success ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>

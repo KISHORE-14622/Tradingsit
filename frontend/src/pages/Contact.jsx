@@ -10,6 +10,7 @@ import {
   ArrowRightIcon,
   CheckIcon
 } from '@heroicons/react/24/solid';
+import Footer from '../components/Footer';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -88,18 +89,15 @@ export default function Contact() {
               
               <div className="space-y-6">
                 <div className="flex items-start">
-                  <MapPinIcon className="h-6 w-6 text-amber-600 mt-1 mr-3" />
-                  <div>
-                    <h3 className="font-bold text-lg">Headquarters</h3>
-                    <p className="text-gray-600">123 Trade Center Blvd, Suite 500<br />New York, NY 10001, USA</p>
-                  </div>
+                  
+                  
                 </div>
                 
                 <div className="flex items-start">
                   <PhoneIcon className="h-6 w-6 text-amber-600 mt-1 mr-3" />
                   <div>
                     <h3 className="font-bold text-lg">Phone</h3>
-                    <p className="text-gray-600">+1 (555) 123-4567<br />Mon-Fri: 8am - 6pm EST</p>
+                    <p className="text-gray-600">+44-7769027118<br />Mon-Fri: 8am - 6pm EST</p>
                   </div>
                 </div>
                 
@@ -107,7 +105,7 @@ export default function Contact() {
                   <EnvelopeIcon className="h-6 w-6 text-amber-600 mt-1 mr-3" />
                   <div>
                     <h3 className="font-bold text-lg">Email</h3>
-                    <p className="text-gray-600">info@prpvarthagam.example<br />support@prpvarthagam.example</p>
+                    <p className="text-gray-600">prabhudassuk@gmail.com<br /></p>
                   </div>
                 </div>
                 
@@ -120,14 +118,8 @@ export default function Contact() {
                 </div>
               </div>
 
-              {/* Map */}
-              <div className="mt-8">
-                <div className="aspect-w-16 aspect-h-9 bg-gray-100 rounded-md overflow-hidden">
-                  <div className="w-full h-64 bg-amber-50 flex items-center justify-center text-amber-800">
-                    <span className="font-medium">Interactive Map Here</span>
-                  </div>
-                </div>
-              </div>
+              
+              
             </div>
           </div>
 
@@ -216,34 +208,11 @@ export default function Contact() {
               <GetQuoteForm />
             </div>
 
-            {/* FAQ Section */}
-            <div className="mt-8 bg-white p-6 md:p-8 rounded-lg shadow-md">
-              <h2 className="text-2xl font-bold mb-6 text-amber-800">Frequently Asked Questions</h2>
-              <div className="space-y-4">
-                {[
-                  {
-                    question: "How quickly can you respond to inquiries?",
-                    answer: "We typically respond within 1 business day, often much sooner for urgent requests."
-                  },
-                  {
-                    question: "Do you offer services in my country?",
-                    answer: "We operate in over 200 countries. Contact us to verify coverage in your specific location."
-                  },
-                  {
-                    question: "What industries do you specialize in?",
-                    answer: "We have experience across all major sectors including manufacturing, agriculture, technology, and consumer goods."
-                  }
-                ].map((faq, index) => (
-                  <div key={index} className="border-b border-gray-200 pb-4">
-                    <h3 className="font-bold text-lg mb-2">{faq.question}</h3>
-                    <p className="text-gray-600">{faq.answer}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
+            
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 }

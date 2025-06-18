@@ -7,7 +7,7 @@ import GetQuoteForm from './components/GetQuoteForm';
 
 export default function App() {
   return (
-    <BrowserRouter basename="/">
+    <BrowserRouter basename="/Trading-site">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
